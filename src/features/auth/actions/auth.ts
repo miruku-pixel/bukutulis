@@ -51,7 +51,7 @@ export async function authenticate(endpoint: string, payload: AuthPayload) {
         });
 
         const loginData = await loginResponse.json();
-        return loginData;
+        return { ...loginData, token: internalToken };
 
     } catch (error) {
         console.error("Auth action error:", error);

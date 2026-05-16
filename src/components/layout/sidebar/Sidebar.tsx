@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import styles from "./sidebar.module.css";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export interface MenuItem {
     id: string;
@@ -66,6 +67,7 @@ const defaultMenuItems: MenuItem[] = [
         label: "Inventory",
         icon: <Box size={20} />,
         children: [
+            { id: "categories", label: "Categories", icon: <Layers size={18} />, path: "/inventory/categories" },
             { id: "stock", label: "Stock Levels", icon: <Box size={18} />, path: "/inventory/stock" },
             { id: "warehouses", label: "Warehouses", icon: <Box size={18} />, path: "/inventory/warehouses" },
         ],
@@ -89,8 +91,19 @@ export function Sidebar({ items = defaultMenuItems, defaultCollapsed = false }: 
     return (
         <aside className={cn(styles.sidebar, isCollapsed ? styles.collapsed : styles.expanded)}>
             <div className={styles.header}>
+                {!isCollapsed && (
+                    <div className="flex items-center gap-3 px-2 flex-1">
+                        <Image 
+                            src="/assets/Logo-White.png" 
+                            alt="Logo" 
+                            width={120} 
+                            height={40} 
+                            className="h-8 w-auto object-contain"
+                        />
+                    </div>
+                )}
                 <button onClick={toggleSidebar} className={styles.toggleBtn}>
-                    <Menu size={24} />
+                    <Menu size={20} />
                 </button>
             </div>
 

@@ -1,0 +1,162 @@
+:root {
+  --header-bg: #FCF8F8;
+  --header-border: rgba(67, 78, 120, 0.1);
+  --header-height: 64px;
+  --header-text: #64748b;
+  --header-text-hover: #434E78;
+  --header-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --accent-color: #434E78;
+}
+
+.header {
+  height: var(--header-height);
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.searchWrapper {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #cbd5e1;
+  border-radius: 0;
+  padding: 8px 12px 8px 32px;
+  color: #1e293b;
+  font-size: 14px;
+  transition: var(--header-transition);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-bottom-color: var(--accent-color);
+  box-shadow: none;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--header-text);
+  pointer-events: none;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: var(--header-text);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--header-transition);
+  position: relative;
+}
+
+.iconBtn:hover {
+  background-color: rgba(67, 78, 120, 0.05);
+  color: var(--header-text-hover);
+}
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  border: 2px solid var(--header-bg);
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--header-border);
+  margin: 0 8px;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--header-transition);
+}
+
+.userProfile:hover {
+  background-color: rgba(67, 78, 120, 0.05);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.userRole {
+  font-size: 11px;
+  color: var(--header-text);
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .userName, .userRole, .searchInput, .divider {
+    display: none;
+  }
+  
+  .searchWrapper {
+    width: auto;
+  }
+}
